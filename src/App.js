@@ -1,27 +1,57 @@
+import { useState } from "react";
+
 function App() {
   return <div>
     <Folder name= "Desktop">
-      <h3> some stuff </h3>
-      <h4> other things </h4>
+      <Folder name = "Music">
+        <File name = "song_one.mp4"/>
+        <File name = "Song_two.mp3"/>
+        
+
+      </Folder>
+      <File name= "dogs.jpeg" />
+      <File name= "cats.png" />
     </Folder>
 
     <Folder name= "Applications"/>
 
-    <File name= "dogs.jpeg" />
-    <File name= "cats.png" />
+    
   </div> 
 }
 
 const Folder = (props) => {
+  const [isOpen, setIsOpen] = useState(true);
+  const {name, children} = props; 
+  const direction = isOpen ? 'down': 'right';
+  const handleClick = () => setIsOpen(!isOpen);
+  
   return <div>
-    {props.name}
-    {props.children}
+    <span onClick = {handleClick}>
+      <i className=" teal folder icon"></i>
+      <i className={` grey caret ${direction} icon`}></i>
+    </span>
+    {name}
+    <div style={{ marginLeft: '18px'}} >
+      {isOpen ? children : null}
     </div>
+  </div>
 
 };
 
 const File = (props) => {
-  return <div>{props.name}</div>
+  const {name} = props;
+  const fileExtension = name.split('.')[1];
+  const fileIcons = {
+    mp4: 'headphones', 
+    mp3: 'headphones',
+    jpeg: 'file image', 
+    png: 'file image outline',
+  };
+
+  return <div>
+    <i className={`${fileIcons[fileExtension]} icon`}></i>
+    {name}
+  </div>
 };
 
 
