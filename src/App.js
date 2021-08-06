@@ -14,7 +14,10 @@ function App() {
     </Folder>
 
     <Folder name= "Applications"/>
-
+    <Folder name= "Documents">
+      <File name = "book_one.pdf"/>
+      <File name = "book_two.pdf"/>
+    </Folder>
     
   </div> 
 }
@@ -46,6 +49,7 @@ const File = (props) => {
     mp3: 'headphones',
     jpeg: 'file image', 
     png: 'file image outline',
+    pdf: 'book',
   };
 
   return <div>
