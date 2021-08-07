@@ -17,6 +17,7 @@ function App() {
     <Folder name= "Documents">
       <File name = "book_one.pdf"/>
       <File name = "book_two.pdf"/>
+      <File name = "book_three.pdf"/>
     </Folder>
     
   </div> 
@@ -30,11 +31,11 @@ const Folder = (props) => {
   
   return <div>
     <span onClick = {handleClick}>
-      <i className=" teal folder icon"></i>
+      <i className=" blue folder icon"></i>
       <i className={` grey caret ${direction} icon`}></i>
     </span>
     {name}
-    <div style={{ marginLeft: '18px'}} >
+    <div style={{ marginLeft: '20px'}} >
       {isOpen ? children : null}
     </div>
   </div>
