@@ -20,6 +20,12 @@ function App() {
       <File name = "book_three.pdf"/>
     </Folder>
     
+    <Folder name= "Downloads">
+      <File name = "syllabus.pdf"/>
+      
+    </Folder>
+
+    <
   </div> 
 }
 
